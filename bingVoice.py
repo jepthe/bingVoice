@@ -13,7 +13,7 @@ import sys
 from playsound import playsound
 
 # Initialize the OpenAI API
-openai.api_key = ""
+openai.api_key = "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"
 
 # Create a recognizer object and wake word variables
 recognizer = sr.Recognizer()
@@ -103,12 +103,12 @@ async def main():
     while True:
         with sr.Microphone() as source:#micro disponible
             recognizer.adjust_for_ambient_noise(source)
-            print('\n"Bing: En el momento que me necesites, di "¡Hola, Bing!" para activarme. \n')
-            #speak('En el momento que me necesites, di "¡Hola, Bing!" para activarme.')
-            speak_google('En el momento que me necesites, di "¡Hola, Bing!" para activarme.')
-            #speak_azure('En el momento que me necesites, di "¡Hola, Bing!" para activarme.')
+            print('\n"Bing: En el momento que me necesites, di "¡Hola Bing!" para activarme. \n')
+            #speak('En el momento que me necesites, di "¡Hola Bing!" para activarme.')
+            speak_google('En el momento que me necesites, di "¡Hola Bing!" para activarme.')
+            #speak_azure('En el momento que me necesites, di "¡Hola Bing!" para activarme.')
             while True:
-                audio = recognizer.listen(source)
+                audio = recognizer.listen(source, timeout=5)
                 try:
                     with open("audio_key.wav", "wb") as f:
                         f.write(audio.get_wav_data())
@@ -163,7 +163,7 @@ async def main():
                         break
               
                 if wake_word == BING_WAKE_WORD:  
-                    print(f"Sending: {user_input}")          
+                    print(f"\nSending: {user_input}")          
                     import json
                     # Lee el contenido del archivo JSON
                     with open('cookies.json') as f:
