@@ -21,8 +21,6 @@ BING_WAKE_WORD = "hola"
 GPT_WAKE_WORD = "gpt"
 warnings.filterwarnings("ignore", message="FP16 is not supported on CPU; using FP32 instead")
 
-
-
 def get_wake_word(phrase):
     if BING_WAKE_WORD in phrase.lower():
         return BING_WAKE_WORD
@@ -146,7 +144,6 @@ async def main():
                 except Exception as e:
                     print("Error transcribing audio: {0}".format(e))
                     continue
-
 
                 if len(user_input.strip()) == 0:
                         #playsound("emptyPrompt.mp3")
