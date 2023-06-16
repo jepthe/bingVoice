@@ -13,7 +13,7 @@ import sys
 from playsound import playsound
 
 # Initialize the OpenAI API
-openai.api_key = ""
+openai.api_key = "   "
 
 # Create a recognizer object and wake word variables
 recognizer = sr.Recognizer()
